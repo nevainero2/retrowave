@@ -1,0 +1,201 @@
+@font-face {
+  font-family: "RalewayMedium";
+  src: url("../../fonts/Raleway-Medium.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "RalewayLight";
+  src: url("../../fonts/Raleway-Light.ttf") format("opentype");
+}
+
+.player-wrapper {
+  position: absolute;
+  z-index: 1000;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  margin: auto;
+  height: 100%;
+
+  .player {
+    position: relative;
+    height: 270px;
+    width: 270px;
+    margin: auto;
+    box-sizing: border-box;
+    max-width: 100%;
+    margin-top: 8%;
+    background-color: #C832D2;
+    box-shadow: 5px 5px 10px #0C141F;
+    transition-duration: .5s;
+
+    .player-content {
+      display: none;
+      position: relative;
+      z-index: 1001;
+      box-sizing: border-box;
+      font-size: 20px;
+      width: 300px;
+      height: 230px;
+      font-family: 'RalewayLight', sans-serif;
+      color: #0C141F;
+      text-align: center;
+      transition-duration: .5s;
+
+      .name {
+        font-family: 'RalewayMedium', sans-serif;
+        text-align: center;
+      }
+
+      .album {
+        font-family: 'RalewayLight', sans-serif;
+        text-align: center;
+      }
+
+      .control {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        transition-duration: .5s;
+
+        i:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .active {
+    height: 330px;
+    width: 500px;
+    transition-duration: .5s;
+    padding-top: 50px;
+    padding-left: 20px;
+    box-sizing: border-box;
+
+    .player-content {
+      display: block;
+      transition-duration: .5s;
+    }
+  }
+}
+
+.player:hover .disk {
+  transition-duration: .5s;
+  left: 70px;
+}
+
+.active:hover .disk {
+  left: 480px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media screen and (max-width: 900px) {
+
+  .player-wrapper {
+    .player {
+      height: 200px;
+      width: 200px;
+      margin: auto;
+      margin-top: 8%;
+
+      img {
+        top: 0;
+        left: 0;
+        height: 200px;
+        width: 200px;
+      }
+
+      .disk {
+        top: 10px;
+        left: 10px;
+        height: 180px;
+        width: 180px;
+      }
+
+      .small-disc {
+        height: 70px;
+        width: 70px;
+        top: 65px;
+        left: 65px;
+        border-radius: 50%;
+      }
+
+      .white-disc {
+        height: 30px;
+        width: 30px;
+        top: 85px;
+        left: 85px;
+      }
+
+      .player-content {
+        font-size: 20px;
+        width: 300px;
+        height: 230px;
+
+        .name {
+          font-weight: 500;
+          text-align: center;
+        }
+
+        .album {
+          font-weight: 300;
+          text-align: center;
+        }
+
+        .control {
+          bottom: 20px;
+          left: 0;
+          width: 100%;
+          display: flex;
+        }
+      }
+    }
+
+    .active {
+      height: 280px;
+      width: 300px;
+      padding: 10px;
+
+      img {
+        top: 210px;
+        left: 10px;
+      }
+
+      .disk {
+        top: 220px;
+        left: 115px;
+      }
+
+      .small-disc {
+
+        top: 275px;
+        left: 170px;
+      }
+
+      .white-disc {
+
+        top: 295px;
+        left: 190px;
+      }
+
+      .player-content {
+        display: block;
+        height: 180px;
+        width: 280px;
+
+        .control {
+          bottom: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,25 +1,50 @@
 {
   "name": "retrowave",
   "version": "0.1.0",
-  "description": "retrowave radio '' ",
-  "main": "index.js",
+  "description": "retrowave radio",
+  "main": "app.js",
+  "private": true,
+  "keywords": [
+    "retro",
+    "retrowave",
+    "synthwave",
+    "radio",
+    "music"
+  ],
+  "author": "nevainero <nevainero@gmail.com>",
+  "license": "UNLICENSED",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=production node app.js",
+    "dev": "concurrently -c \"green.bold,red.bold\" \"npm run server:dev\" \"npm run client:dev\"",
+    "build": "npm run build --prefix client",
+    "server:dev": "nodemon app.ts",
+    "client:install": "npm install --prefix client",
+    "client:dev": "cross-env NODE_ENV=development npm run start --prefix client",
+    "deploy:install": "npm install; npm run client:install; npm run build",
+    "deploy:update": "git pull origin master; npm run build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "config": "^3.3.7",
     "express": "^4.17.2",
     "git-cz": "^4.8.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.1"
+    "mongoose": "^6.2.1",
+    "node-sass": "^7.0.1"
   },
   "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@typescript-eslint/parser": "^5.11.0",
     "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
-    "nodemon": "^2.0.15"
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-react": "^7.28.0",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.5.0"
   }
 }
