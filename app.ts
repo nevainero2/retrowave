@@ -1,8 +1,8 @@
-import { Request, Response } from 'express'
-
 const express = require('express')
+// @ts-ignore
 const config = require('config')
 const mongoose = require('mongoose')
+// @ts-ignore
 const path = require('path')
 
 const port = config.get('port') || 5000
@@ -18,7 +18,7 @@ app.use('/api/music',
 // Send static files & index.html in Production mode
 if (process.env.NODE_ENV === 'production') {
   app.use('/', express.static(path.join(__dirname, 'client', 'build')))
-  app.get('*', (_req: Request, res: Response) =>
+  app.get('*', (_req: any, res: any) =>
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')),
   )
 }

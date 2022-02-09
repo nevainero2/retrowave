@@ -1,4 +1,6 @@
+// @ts-ignore
 const path = require('path')
+// @ts-ignore
 const config: TConfig = require('./config.json')
 
 type TAlbum = {
