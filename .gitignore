@@ -1,0 +1,8 @@
+# Dependencies
+node_modules
+client/node_modules
+
+# Client build
+client/build
+
+.idea
